@@ -4,16 +4,16 @@ public class Calculadora {
     private Usuario user;
     private String login;
     private String senha;
-    private int numA;
-    private int numB;
-    private int numX;
+    private double numA;
+    private double numB;
+    private double numX;
 
     public Calculadora(Usuario user) {
        user = user;
     }
 
 
-    public String soma(int numA, int numB) {
+    public String soma(double  numA, double  numB) {
         if (user.login(this.login, this.senha)) {
             return "a some é igual a: " + (numA + numB) ;
         } else {
@@ -23,46 +23,56 @@ public class Calculadora {
 
     }
 
-    public int subtrair(int numA, int numB) {
-        this.numA = numA;
-        this.numB = numB;
+    public String subtrair(double numA, double numB) {
+        if (user.login(this.login, this.senha)) {
+            return "a subtração é igual a: " + (numA - numB);
+        } else {
+            return "o usuário não tem acesso";
+        }
 
-        return numA - numB;
     }
 
-    public int multiplicar(int numA, int numB) {
-        this.numA = numA;
-        this.numB = numB;
+    public String multiplicar(double numA, double numB) {
+        if (user.login(this.login, this.senha)) {
+            return "a multiplicação é igual a: " + (numA * numB);
+        } else {
+            return "o usuário não tem acesso";
+        }
 
-        return numA * numB;
+
     }
 
-    public int dividir(int numA, int numB) {
-        this.numA = numA;
-        this.numB = numB;
-
-        return numA / numB;
+    public String dividir(double numA, double numB) {
+     if(user.login(this.login, this.senha)){
+         return "A divisão é igual a: " + (numA / numB);
+     }else{
+         return "usuário não tem acesso";
+     }
     }
 
-    public int func(int numX, int numA, int numB) {
-        this.numA = numA;
-        this.numB = numB;
+    public String func(double numX, double numA, double numB) {
+     if(user.login(this.login,this.senha)){
+         return "A função é igual a: " + ((numX * numA) + numB);
+     } else {
+         return "usuário sem acesso";
+     }
+    }
+
+    public String potencia(double numX, double pot) {
         this.numX = numX;
-
-        return (numX * numA) + numB;
-    }
-
-    public float potencia(int numX, int pot) {
-        this.numX = numX;
-        int answer = 1;
-//        float potencia = (float) Math.pow(numX,pot);
+        double answer = 1;
         if(pot == 2){
-            return numX * numX;
+            return "A potenciação é igual a: " + numX * numX;
         }else{
-        for (int i = 1; i <= pot; i++) {
-            answer = answer * numX;
-        }}
+            for (double i = 1; i <= pot; i++) {
+                answer = answer * numX;
+            }}
 
-        return answer;
+        if(user.login(this.login,this.senha)){
+            return "A potenciação é igual a: " + answer;
+        }else{
+            return "Usuário sem acesso";
+        }
+
     }
 }

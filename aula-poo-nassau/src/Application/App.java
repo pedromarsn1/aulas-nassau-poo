@@ -12,14 +12,14 @@ public class App {
         ));
 
 
-//        int soma = cal.soma(8,5);
-        float potencia = cal.potencia(5, 5);
-        int subtracao = cal.subtrair(84, 4);
-        int divisao = cal.dividir(16, 4);
-        int multiplicacao = cal.multiplicar(9, 8);
-        int funcao = cal.func(4, 5, 6);
+        String soma = cal.soma(3, 9);
+        String potencia = cal.potencia(5, 5);
+        String subtracao = cal.subtrair(84, 4);
+        String divisao = cal.dividir(16, 4);
+        String multiplicacao = cal.multiplicar(9, 8);
+        String funcao = cal.func(4, 5, 6);
 
-//        System.out.println(soma);
+        System.out.println(soma);
         System.out.println(potencia);
         System.out.println(subtracao);
         System.out.println(divisao);
